@@ -16,6 +16,7 @@ return {
           vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
         end
 
+        -- Standard LSP mappings
         map("n", "gd", vim.lsp.buf.definition, "Go to definition")
         map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
         map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
@@ -29,6 +30,17 @@ return {
         map("n", "<leader>wl", function()
           print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
         end, "List workspace folders")
+
+        -- Flutter-specific commands (buffer-local to Dart buffers)
+        map("n", "<leader>fr", "<cmd>FlutterRun<CR>", "Flutter run")
+        map("n", "<leader>fd", "<cmd>FlutterDevices<CR>", "Flutter devices")
+        map("n", "<leader>fe", "<cmd>FlutterEmulators<CR>", "Flutter emulators")
+        map("n", "<leader>fL", "<cmd>FlutterReload<CR>", "Flutter reload")
+        map("n", "<leader>fR", "<cmd>FlutterRestart<CR>", "Flutter restart")
+        map("n", "<leader>fo", "<cmd>FlutterOutlineToggle<CR>", "Flutter outline")
+        map("n", "<leader>fq", "<cmd>FlutterQuit<CR>", "Flutter quit")
+        map("n", "<leader>fT", "<cmd>FlutterDevTools<CR>", "Flutter DevTools")
+        map("n", "<leader>fl", "<cmd>FlutterLogToggle<CR>", "Flutter logs")
       end
 
       require("flutter-tools").setup({
