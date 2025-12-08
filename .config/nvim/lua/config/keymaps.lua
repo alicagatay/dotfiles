@@ -41,6 +41,10 @@ map("n", "<leader>fh", function()
   require("telescope.builtin").help_tags()
 end, { desc = "Help tags" })
 
+map("n", "<leader>/", function()
+  require("telescope.builtin").current_buffer_fuzzy_find()
+end, { desc = "Search in current buffer" })
+
 -- Diagnostics
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev diagnostic" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Next diagnostic" })
