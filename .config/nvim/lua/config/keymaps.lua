@@ -10,6 +10,14 @@ map("n", "<leader>w", ":w<CR>", { desc = "Save" })
 map("n", "<leader>q", ":q<CR>", { desc = "Quit" })
 map("n", "<leader>Q", ":qa!<CR>", { desc = "Quit all" })
 
+-- Tabs & splits
+map("n", "<leader>tn", ":tabnew<CR>", { desc = "New tab" })
+map("n", "<leader>sv", ":vsplit<CR>", { desc = "Vertical split" })
+map("n", "<leader>sh", ":split<CR>", { desc = "Horizontal split" })
+
+-- Terminal
+map("n", "<leader>nt", ":split | terminal<CR>", { desc = "Open terminal split" })
+
 -- Clear search
 map("n", "<leader>h", ":nohlsearch<CR>", { desc = "Clear search highlight" })
 
