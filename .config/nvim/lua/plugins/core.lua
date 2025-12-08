@@ -16,6 +16,7 @@ return {
         { "<leader>f", group = "file/find" },
         { "<leader>d", group = "diagnostics" },
         { "<leader>g", group = "git" },
+        { "<leader>c", group = "copilot" },
       })
     end,
   },
