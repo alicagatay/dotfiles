@@ -119,10 +119,10 @@ M.spec = {
     },
   },
 
-  -- LSP config
+  -- LSP config (eagerly loaded so LSP is ready for all buffers)
   {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPost", "BufNewFile" },
+    lazy = false,
     dependencies = {
       "williamboman/mason-lspconfig.nvim",
       "hrsh7th/cmp-nvim-lsp",
