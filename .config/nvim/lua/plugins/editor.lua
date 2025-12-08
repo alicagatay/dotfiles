@@ -41,6 +41,21 @@ return {
     },
   },
 
+  -- Git wrapper (vim-fugitive)
+  {
+    "tpope/vim-fugitive",
+    cmd = {
+      "Git",
+      "G",
+      "Gdiffsplit",
+      "Gvdiffsplit",
+      "Gstatus",
+      "Gblame",
+      "Glog",
+      "Gclog",
+    },
+  },
+
   -- Telescope configuration
   {
     "nvim-telescope/telescope.nvim",
