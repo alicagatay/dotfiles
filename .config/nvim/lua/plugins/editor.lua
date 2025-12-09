@@ -137,4 +137,15 @@ return {
       },
     },
   },
+
+  -- Dooing: minimalist todo manager
+  {
+    "atiladefreitas/dooing",
+    event = "VeryLazy",
+    config = function()
+      require("dooing").setup({
+        -- using defaults; customize here if you like
+      })
+    end,
+  },
 }
