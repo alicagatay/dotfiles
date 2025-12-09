@@ -16,7 +16,7 @@ map("n", "<leader>sv", ":vsplit<CR>", { desc = "Vertical split" })
 map("n", "<leader>sh", ":split<CR>", { desc = "Horizontal split" })
 
 -- Terminal
-map("n", "<leader>nt", ":split | terminal<CR>", { desc = "Open terminal split" })
+map("n", "<leader>nt", ":vsplit | terminal<CR>", { desc = "Open terminal split" })
 
 -- Clear search
 map("n", "<leader>h", ":nohlsearch<CR>", { desc = "Clear search highlight" })
