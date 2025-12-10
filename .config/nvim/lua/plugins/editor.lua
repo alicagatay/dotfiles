@@ -138,13 +138,19 @@ return {
     },
   },
 
-  -- Dooing: minimalist todo manager
+  -- Dooing: minimalist todo manager (local fork)
   {
     "atiladefreitas/dooing",
+    -- Load from local fork instead of cloning into Lazy's directory
+    dir = "/Users/alicagatay/Documents/Dev/Projects/dooing",
     event = "VeryLazy",
     config = function()
       require("dooing").setup({
         -- using defaults; customize here if you like
+        keymaps = {
+          sync_export_on = "<leader>ts",
+          sync_export_off = "<leader>tS",
+        },
       })
     end,
   },
