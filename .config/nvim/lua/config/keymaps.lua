@@ -10,6 +10,10 @@ map("n", "<leader>w", ":w<CR>", { desc = "Save" })
 map("n", "<leader>q", ":q<CR>", { desc = "Quit" })
 map("n", "<leader>Q", ":qa!<CR>", { desc = "Quit all" })
 
+-- Remove Neovim's built-in `gcc` line-comment mapping so it doesn't
+-- overlap with Comment.nvim's `gc` / `gC` mappings.
+pcall(vim.keymap.del, "n", "gcc")
+
 -- Tabs & splits
 map("n", "<leader>tn", ":tabnew<CR>", { desc = "New tab" })
 map("n", "<leader>sv", ":vsplit<CR>", { desc = "Vertical split" })
@@ -41,7 +45,7 @@ map("n", "<leader>fh", function()
   require("telescope.builtin").help_tags()
 end, { desc = "Help tags" })
 
-map("n", "<leader>/", function()
+map("n", "<leader>f/", function()
   require("telescope.builtin").current_buffer_fuzzy_find()
 end, { desc = "Search in current buffer" })
 
@@ -53,13 +57,13 @@ map("n", "<leader>dl", ":Trouble diagnostics toggle<CR>", { desc = "Diagnostics 
 
 -- LSP-related (buffer-local ones will be set in LSP on_attach; these are fallbacks)
 map("n", "gd", vim.lsp.buf.definition, { desc = "Go to definition" })
-map("n", "gr", vim.lsp.buf.references, { desc = "References" })
+map("n", "gR", vim.lsp.buf.references, { desc = "References" })
 map("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 
 -- Format (uses Conform with LSP fallback)
-map("n", "<leader>f", function()
+map("n", "<leader>F", function()
   require("conform").format({ async = true, lsp_fallback = true })
 end, { desc = "Format buffer" })
 
