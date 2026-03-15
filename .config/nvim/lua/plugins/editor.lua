@@ -34,20 +34,22 @@ return {
   {
     "kylechui/nvim-surround",
     event = "VeryLazy",
+    init = function()
+      vim.g.nvim_surround_no_mappings = true
+    end,
     config = function()
-      require("nvim-surround").setup({
-        keymaps = {
-          -- Use <leader>s* so none of these are prefixes of each other
-          normal = "<leader>sa",        -- add surround around motion
-          normal_cur = "<leader>sA",    -- add surround around current word
-          normal_line = "<leader>sl",   -- add surround to whole line
-          normal_cur_line = "<leader>sL", -- add surround to current line
-          visual = "<leader>sa",        -- add surround in visual mode
-          visual_line = "<leader>sl",   -- add surround for visual line
-          delete = "<leader>sd",        -- delete surround
-          change = "<leader>sr",        -- change surround
-        },
-      })
+      require("nvim-surround").setup({})
+
+      -- Use <leader>s* so none of these are prefixes of each other
+      -- v4: keymaps must be set manually via <Plug> mappings
+      vim.keymap.set("n", "<leader>sa", "<Plug>(nvim-surround-normal)", { desc = "Add surround" })        -- add surround around motion
+      vim.keymap.set("n", "<leader>sA", "<Plug>(nvim-surround-normal-cur)", { desc = "Add surround (current line)" }) -- add surround around current word
+      vim.keymap.set("n", "<leader>sl", "<Plug>(nvim-surround-normal-line)", { desc = "Add surround (line)" })   -- add surround to whole line
+      vim.keymap.set("n", "<leader>sL", "<Plug>(nvim-surround-normal-cur-line)", { desc = "Add surround (cur line)" }) -- add surround to current line
+      vim.keymap.set("x", "<leader>sa", "<Plug>(nvim-surround-visual)", { desc = "Add surround (visual)" })      -- add surround in visual mode
+      vim.keymap.set("x", "<leader>sl", "<Plug>(nvim-surround-visual-line)", { desc = "Add surround (visual line)" }) -- add surround for visual line
+      vim.keymap.set("n", "<leader>sd", "<Plug>(nvim-surround-delete)", { desc = "Delete surround" })     -- delete surround
+      vim.keymap.set("n", "<leader>sr", "<Plug>(nvim-surround-change)", { desc = "Change surround" })     -- change surround
     end,
   },
 
